@@ -13,7 +13,8 @@
         }
     </style>
 
-
+    
+    
 
     <h1><span class="glyphicon glyphicon-tint"></span> <%: Title %>.</h1>
     <h2>Wykresy zużycia mediów</h2>

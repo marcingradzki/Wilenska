@@ -22,8 +22,8 @@ namespace A
             //Literal1.Text = "TEST";
             List<string> list = new List<string>();
             string[] headers = new string[14] { "Imię", "Nazwisko", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień", "Styczneń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec" };
-            string connectionString = @"Data Source=INVENTOD03\SQLEXPRESS;Initial Catalog=DB;Integrated Security=SSPI";//ConfigurationManager.AppSettings["conString"];
-            string command = "SELECT * FROM [DB].[dbo].[Czynsz]";
+            string connectionString = @"Data Source=INVENTOD03\SQLEXPRESS;Initial Catalog=C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF;Integrated Security=SSPI";//ConfigurationManager.AppSettings["conString"];
+            string command = @"SELECT * FROM [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Czynsz]";
 
 
             foreach (var item in headers)
@@ -81,7 +81,7 @@ namespace A
                 {10, "Październik"}, {11, "Listopad"}, {12, "Grudzień"}};
 
             bool bgladki = false, bmarta = false, bmarcin = false, bsadza = false, bpiotr = false;
-            string query = "SELECT [" + dc[DateTime.Now.Month] + "] FROM [DB].[dbo].[Czynsz] WHERE [ID] = ";
+            string query = @"SELECT [" + dc[DateTime.Now.Month] + @"] FROM [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Czynsz] WHERE [ID] = ";
             string gladki = query + "1;";
             string marta = query + "2;";
             string marcin = query + "3;";

@@ -12,7 +12,7 @@
     </style>
     <div class="row">
         <div class="alignleft" >
-        <h1 ><%: Title %>.</h1>
+        <h1 ><span class="glyphicon glyphicon-usd"></span><%: Title %>.</h1> <!-- nieladny glyphicon-->
         <h2 >Archiwum kosztów mieszkaniowych</h2>
         </div>
 
