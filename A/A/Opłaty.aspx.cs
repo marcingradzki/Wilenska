@@ -17,7 +17,7 @@ namespace A
             string[] array = new string[6] {"Miesiąc", "Woda zimna", "Woda ciepła", "Prąd", "Gaz", "Suma kosztów"};
             string connectionString = @"Data Source=INVENTOD03\SQLEXPRESS;Initial Catalog=C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF;Integrated Security=SSPI";//@"Data Source=INVENTOD03\SQLEXPRESS;Initial Catalog=DB;Integrated Security=SSPI";
             //string command = "SELECT * FROM [DB].[dbo].[Opłaty]";
-            string command = @"SELECT [Miesiąc], [Woda zimna], [Woda ciepła], [Prąd], [Gaz], ([Woda zimna] + [Woda ciepła] + [Prąd] + [Gaz]) as 'Suma kosztów' FROM [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Opłaty]";
+            string command = @"SELECT [Miesiąc], [Woda_zimna], [Woda_ciepła], [Prąd], [Gaz], ([Woda_zimna] + [Woda_ciepła] + [Prąd] + [Gaz]) as 'Suma_kosztów' FROM [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Opłaty]";
 
             foreach (var item in array)
             {
