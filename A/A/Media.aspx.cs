@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.DataVisualization.Charting;
-using System.Web.UI.WebControls;
+using System.Web.Configuration;
+using MySql.Data.MySqlClient;
+using System.IO;
 
 namespace A
 {
@@ -15,11 +12,12 @@ namespace A
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string myConnectionString = @"Data Source=INVENTOD03\SQLEXPRESS;Initial Catalog=C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF;Integrated Security=SSPI";
-            string mySelectQueryWodaZimna = @"SELECT [Miesiąc], [Woda_zimna] FROM [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Media]";
-            string mySelectQueryWodaCiepla = @"SELECT [Miesiąc], [Woda_ciepła] FROM [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Media]";
-            string mySelectQueryPrad = @"SELECT [Miesiąc], [Prąd] FROM [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Media]";
-            string mySelectQueryGaz = @"SELECT [Miesiąc], [Gaz] FROM [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Media]";
+            string myConnectionString = WebConfigurationManager.ConnectionStrings["DBConnectionString"].ToString();
+
+            string mySelectQueryWodaZimna = @"SELECT Miesiąc, Woda_zimna FROM `acsm_a0194eca4f70c60`.`Media`; ";
+            string mySelectQueryWodaCiepla = @"SELECT Miesiąc, Woda_ciepła FROM `acsm_a0194eca4f70c60`.`Media`; ";
+            string mySelectQueryPrad = @"SELECT Miesiąc, Prąd FROM `acsm_a0194eca4f70c60`.`Media`; ";
+            string mySelectQueryGaz = @"SELECT Miesiąc, Gaz FROM `acsm_a0194eca4f70c60`.`Media`; ";
             string x = "Miesiąc";
             string zimna = "Woda_zimna";
             string ciepla = "Woda_ciepła";
@@ -48,12 +46,11 @@ namespace A
             Chart4.ChartAreas[0].AxisX.Minimum = 0;
             Chart4.Titles.Add("Gaz");
 
-            //.LabelStyle = new LabelStyle() { Font = new Font("Verdana", 7.5f) };
-
-            // Initialize a connection string    
-
-            SqlConnection myConnection = new SqlConnection(myConnectionString);
-            SqlCommand myCommand = new SqlCommand(mySelectionQueryWodaZimna, myConnection);
+            MySqlConnection myConnection = new MySqlConnection(myConnectionString);
+            MySqlConnection myConnection1 = new MySqlConnection(myConnectionString);
+            MySqlConnection myConnection2 = new MySqlConnection(myConnectionString);
+            MySqlConnection myConnection3 = new MySqlConnection(myConnectionString);
+            MySqlCommand myCommand = new MySqlCommand(mySelectionQueryWodaZimna, myConnection);
 
             myConnection.Open();
 
@@ -62,35 +59,94 @@ namespace A
             Chart1.Series[0].XValueMember = x;
             Chart1.Series[0].YValueMembers = zimna;
             Chart1.Series[0].ChartType = SeriesChartType.Column;
+            //myConnection.Close();
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            SqlConnection myConnection1 = new SqlConnection(myConnectionString);
-            SqlCommand myCommand1 = new SqlCommand(mySelectionQueryWodaCiepla, myConnection1); 
-
+            MySqlCommand myCommand1 = new MySqlCommand(mySelectionQueryWodaCiepla, myConnection1);
             myConnection1.Open();
             Chart2.DataSource = myCommand1.ExecuteReader(CommandBehavior.CloseConnection);
             Chart2.Series[0].XValueMember = x;
             Chart2.Series[0].YValueMembers = ciepla;
             Chart2.Series[0].ChartType = SeriesChartType.Column;
+            //myConnection.Close();
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            SqlConnection myConnection2 = new SqlConnection(myConnectionString);  
-            SqlCommand myCommand2 = new SqlCommand(mySelectionQueryPrad, myConnection2);
-
+            MySqlCommand myCommand2 = new MySqlCommand(mySelectionQueryPrad, myConnection2);
             myConnection2.Open();
             Chart3.DataSource = myCommand2.ExecuteReader(CommandBehavior.CloseConnection);
             Chart3.Series[0].XValueMember = x;
             Chart3.Series[0].YValueMembers = prad;
             Chart3.Series[0].ChartType = SeriesChartType.Column;
+            //myConnection.Close();
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            SqlConnection myConnection3 = new SqlConnection(myConnectionString); 
-            SqlCommand myCommand3 = new SqlCommand(mySelectionQueryGaz, myConnection3);
-
+            MySqlCommand myCommand3 = new MySqlCommand(mySelectionQueryGaz, myConnection3);
             myConnection3.Open();
             Chart4.DataSource = myCommand3.ExecuteReader(CommandBehavior.CloseConnection);
             Chart4.Series[0].XValueMember = x;
             Chart4.Series[0].YValueMembers = gaz;
             Chart4.Series[0].ChartType = SeriesChartType.Column;
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //myConnection.Close();
+            //myConnection1.Close();
+            //myConnection2.Close();
+            //myConnection3.Close();
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
-      
+
     }
+
 }
+
+
+     //.LabelStyle = new LabelStyle() { Font = new Font("Verdana", 7.5f) };
+
+            // Initialize a connection string    
+
+
+
+
+
+
+            //string command = mySelectionQueryWodaZimna + mySelectionQueryWodaCiepla + mySelectionQueryPrad + mySelectionQueryGaz;
+
+
+            //MySqlConnection myConnection = new MySqlConnection(myConnectionString);
+            //MySqlCommand myCommand = new MySqlCommand(mySelectionQueryWodaZimna, myConnection);
+
+            //myConnection.Open();
+           
+            //string pierw = myCommand.ExecuteReader(CommandBehavior.CloseConnection).ToString();
+            
+
+            //// set chart data source - the data source must implement IEnumerable
+            //Chart1.DataSource = pierw;
+            //string n = Chart1.DataSource.ToString();
+            //File.WriteAllText(@"C:\Users\ivs002\Desktop\sky24.txt", n);
+            //Chart1.Series[0].XValueMember = x;
+            //Chart1.Series[0].YValueMembers = zimna;
+            //Chart1.Series[0].ChartType = SeriesChartType.Column;
+ 
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            
+            //myConnection.Open();
+            //Chart2.DataSource = drug;
+            //Chart2.Series[0].XValueMember = x;
+            //Chart2.Series[0].YValueMembers = ciepla;
+            //Chart2.Series[0].ChartType = SeriesChartType.Column;
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            
+            //myConnection.Open();
+            //Chart3.DataSource = trzec;
+            //Chart3.Series[0].XValueMember = x;
+            //Chart3.Series[0].YValueMembers = prad;
+            //Chart3.Series[0].ChartType = SeriesChartType.Column;
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            
+            //myConnection.Open();
+            //Chart4.DataSource = czwart;
+            //Chart4.Series[0].XValueMember = x;
+            //Chart4.Series[0].YValueMembers = gaz;
+            //Chart4.Series[0].ChartType = SeriesChartType.Column;
+            //myConnection.Close();
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -6,7 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using System.Web.Configuration;
+using MySql.Data.MySqlClient;
 
 namespace A
 {
@@ -14,52 +15,42 @@ namespace A
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           // string myConnectionString = @"Data Source=INVENTOD03\SQLEXPRESS;Initial Catalog=C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF;Integrated Security=SSPI";
-            string query = @"UPDATE [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Opłaty] " +
-                      @"SET [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Opłaty].[Woda] = (12.34 + ((Media.[Woda_zimna] + Media.[Woda_ciepła])*7.88) + (13.09 * Media.[Woda_ciepła])) * Opłaty.Helper , " +
-                      @"[dbo].[Opłaty].[Prąd] = (Media.[Prąd] * 0.56 + 4.75) * Opłaty.Helper, " +
-                      @"[dbo].[Opłaty].[Gaz] = (Media.[Gaz] * 0.2 + 9.2) * Opłaty.Helper " +
-                      @"FROM [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Media] " +
-                      @"Where dbo.Opłaty.ID = dbo.Media.ID; " +
-                      @"UPDATE [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Opłaty]  " +
-                      @"SET [dbo].[Opłaty].[Suma_kosztów] = (Opłaty.Woda + Opłaty.Prąd + Opłaty.Gaz) " +
-                      @"FROM [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Media] " +
-                      @"Where dbo.Opłaty.ID = dbo.Media.ID; SELECT * FROM [Opłaty]";
            
-           // SqlConnection myConnection = new SqlConnection(myConnectionString);
-           // SqlCommand myCommand = new SqlCommand(query, myConnection);
-
-           // myConnection.Open();
-
-           // GridView3.DataBind();
-
-
-           //// DataGrid dgr = new DataGrid(myConnection);
-
-            
-           // opłaty.SelectCommand = query;
-           // opłaty.Select(opłaty.SelectCommand);
+            //string query = @"UPDATE `acsm_a0194eca4f70c60`.`Opłaty` " +
+            //          @"SET `acsm_a0194eca4f70c60`.`Opłaty`.[Woda] = (12.34 + ((Media.[Woda_zimna] + Media.[Woda_ciepła])*7.88) + (13.09 * Media.[Woda_ciepła])) * Opłaty.Helper , " +
+            //          @"`acsm_a0194eca4f70c60`.`Opłaty`.[Prąd] = (Media.[Prąd] * 0.56 + 4.75) * Opłaty.Helper, " +
+            //          @"`acsm_a0194eca4f70c60`.`Opłaty`.[Gaz] = (Media.[Gaz] * 0.2 + 9.2) * Opłaty.Helper " +
+            //          @"FROM `acsm_a0194eca4f70c60`.`Media` " +
+            //          @"Where dbo.Opłaty.ID = dbo.Media.ID; " +
+            //          @"UPDATE `acsm_a0194eca4f70c60`.`Opłaty`  " +
+            //          @"SET `acsm_a0194eca4f70c60`.`Opłaty`.[Suma_kosztów] = (Opłaty.Woda + Opłaty.Prąd + Opłaty.Gaz) " +
+            //          @"FROM `acsm_a0194eca4f70c60`.`Media` " +
+            //          @"Where dbo.Opłaty.ID = dbo.Media.ID; SELECT * FROM [Opłaty]";
+          
         }
 
        
 
         protected void Sql()
         {
-             string myConnectionString = @"Data Source=INVENTOD03\SQLEXPRESS;Initial Catalog=C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF;Integrated Security=SSPI";
-            string query = @"UPDATE [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Opłaty] " +
-                      @"SET [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Opłaty].[Woda] = (12.34 + ((Media.[Woda_zimna] + Media.[Woda_ciepła])*7.88) + (13.09 * Media.[Woda_ciepła])) * Opłaty.Helper , " +
-                      @"[dbo].[Opłaty].[Prąd] = (Media.[Prąd] * 0.56 + 4.75) * Opłaty.Helper, " +
-                      @"[dbo].[Opłaty].[Gaz] = (Media.[Gaz] * 0.2 + 9.2) * Opłaty.Helper " +
-                      @"FROM [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Media] " +
+            string myConnectionString = WebConfigurationManager.ConnectionStrings["DBCon"].ToString();
+            string query = @"UPDATE `acsm_a0194eca4f70c60`.`Opłaty` " +
+                      @"SET `acsm_a0194eca4f70c60`.`Opłaty`.Woda = (12.34 + ((Media.Woda_zimna + Media.Woda_ciepła)*7.88) + (13.09 * Media.Woda_ciepła)) * Opłaty.Helper , " +
+                      @"`acsm_a0194eca4f70c60`.`Opłaty`.Prąd = (Media.Prąd * 0.56 + 4.75) * Opłaty.Helper, " +
+                      @"`acsm_a0194eca4f70c60`.`Opłaty`.Gaz = (Media.Gaz * 0.2 + 9.2) * Opłaty.Helper, " +
+                      @"`acsm_a0194eca4f70c60`.`Opłaty`.Czynsz = @Czynsz, "+
+                      @"`acsm_a0194eca4f70c60`.`Opłaty`.Internet = @Internet, "+
+                      @"`acsm_a0194eca4f70c60`.`Opłaty`.Składka = @Składka "+
+                      @"FROM `acsm_a0194eca4f70c60`.`Media` " +
                       @"Where dbo.Opłaty.ID = dbo.Media.ID; " +
-                      @"UPDATE [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Opłaty]  " +
-                      @"SET [dbo].[Opłaty].[Suma_kosztów] = (Opłaty.Woda + Opłaty.Prąd + Opłaty.Gaz) " +
-                      @"FROM [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Media] " +
-                      @"Where dbo.Opłaty.ID = dbo.Media.ID; SELECT * FROM [Opłaty]";
+                      @"UPDATE `acsm_a0194eca4f70c60`.`Opłaty`  " +
+                      @"SET `acsm_a0194eca4f70c60`.`Opłaty`.Suma_kosztów = (Opłaty.Woda + Opłaty.Prąd + Opłaty.Gaz + Opłaty.Czynsz + Opłaty.Internet + Opłaty.Składka) " +
+                      @"FROM `acsm_a0194eca4f70c60`.`Media` " +
+                      @"Where dbo.Opłaty.ID = dbo.Media.ID; SELECT * FROM Opłaty";
 
-             SqlConnection myConnection = new SqlConnection(myConnectionString);
+             MySqlConnection myConnection = new MySqlConnection(myConnectionString);
              myConnection.Open(); 
-             SqlCommand myCommand = new SqlCommand(query, myConnection);
+             MySqlCommand myCommand = new MySqlCommand(query, myConnection);
              myCommand.ExecuteNonQuery();
              
         }
@@ -69,6 +60,11 @@ namespace A
             status.Update();
             media.Update();
             opłaty.Update();
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
 
@@ -86,19 +82,19 @@ namespace A
 
 
         /*
-                "UPDATE [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Opłaty] "+
-                "SET [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Opłaty].[Woda_zimna] = Media.[Woda_zimna] * 2, "+
+                "UPDATE [dbo].[Opłaty] "+
+                "SET [dbo].[Opłaty].[Woda_zimna] = Media.[Woda_zimna] * 2, "+
                 "[dbo].[Opłaty].[Woda_ciepła] = Media.[Woda_ciepła] * 2, "+
                 "[dbo].[Opłaty].[Prąd] = Media.[Prąd] * 2, "+
                 "[dbo].[Opłaty].[Gaz] = Media.[Gaz] * 2 "+
-                "FROM [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Media] "+
+                "FROM `acsm_a0194eca4f70c60`.`Media` "+
                 "Where dbo.Opłaty.ID = dbo.Media.ID;"
-                "UPDATE [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Opłaty] "+
+                "UPDATE [dbo].[Opłaty] "+
                 "SET [dbo].[Opłaty].[Suma_kosztów] = Opłaty.Woda_ciepła + Opłaty.Woda_zimna +Opłaty.Prąd + Opłaty.Gaz "+
-                "FROM [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Media] "+
+                "FROM `acsm_a0194eca4f70c60`.`Media` "+
                 "Where dbo.Opłaty.ID = dbo.Media.ID;"
          * 
-         *  string monthQuery = @"UPDATE [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Opłaty] " +
+         *  string monthQuery = @"UPDATE [dbo].[Opłaty] " +
                                 @"SET Opłaty.Helper";
             //helper to 6 kolumna
             int date = DateTime.Now.Month;

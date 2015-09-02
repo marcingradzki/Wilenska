@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Web.Configuration;
+using MySql.Data.MySqlClient;
 
 namespace A
 {
@@ -14,10 +12,9 @@ namespace A
         {
             Literal1.Text = "Literal działa\n";
             List<string> list = new List<string>();
-            string[] array = new string[5] {"Miesiąc", "Woda", "Prąd", "Gaz", "Suma kosztów"};
-            string connectionString = @"Data Source=INVENTOD03\SQLEXPRESS;Initial Catalog=C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF;Integrated Security=SSPI";//@"Data Source=INVENTOD03\SQLEXPRESS;Initial Catalog=DB;Integrated Security=SSPI";
-            //string command = "SELECT * FROM [DB].[dbo].[Opłaty]";
-            string command = @"SELECT [Miesiąc], [Woda], [Prąd], [Gaz], [Suma_kosztów] FROM [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Opłaty]";
+            string[] array = new string[8] { "Miesiąc", "Woda", "Prąd", "Gaz", "Czynsz", "Suma kosztów", "Internet", "Składka" };
+            string connectionString = WebConfigurationManager.ConnectionStrings["DBConnectionString"].ToString();
+            string command = @"SELECT Miesiąc, Woda, Prąd, Gaz, Czynsz, Suma_kosztów, Internet, Składka FROM `acsm_a0194eca4f70c60`.`Opłaty`";
 
             foreach (var item in array)
             {
@@ -26,10 +23,10 @@ namespace A
             }
 
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                using (SqlCommand cmd = new SqlCommand(command, conn))
+                using (MySqlCommand cmd = new MySqlCommand(command, conn))
                 {
                     var reader = cmd.ExecuteReader();
                     try

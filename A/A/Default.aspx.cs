@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Configuration;
-using System.Data.SqlClient;
-using System.IO;
+using MySql.Data.MySqlClient;
+using System.Web.Configuration;
+
 
 namespace A
 {
@@ -19,24 +16,27 @@ namespace A
         
         protected void viewTable(object sender, EventArgs e)
         {
+            
             //Literal1.Text = "TEST";
             List<string> list = new List<string>();
+                  
             string[] headers = new string[14] { "Imię", "Nazwisko", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień", "Styczneń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec" };
-            string connectionString = @"Data Source=INVENTOD03\SQLEXPRESS;Initial Catalog=C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF;Integrated Security=SSPI";//ConfigurationManager.AppSettings["conString"];
-            string command = @"SELECT * FROM [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Czynsz]";
-
+            string connectionString = WebConfigurationManager.ConnectionStrings["DBConnectionString"].ToString();
+            //string connectionString = @"Database=acsm_a0194eca4f70c60;Data Source=eu-cdbr-azure-west-c.cloudapp.net;User Id=baeb725b8c8ea0;Password=4535d1d5";
+            string command = @"SELECT * FROM `acsm_a0194eca4f70c60`.`Czynsz`";
+            
 
             foreach (var item in headers)
             {
                 list.Add("<TH class='success'>" + item + "</TH>");
             }
-            List<string> l = Month(list);      
-      
+            List<string> l = Month(list);
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                using (SqlCommand cmd = new SqlCommand(command, conn))
+                using (MySqlCommand cmd = new MySqlCommand(command, conn))
                 {
                     var reader = cmd.ExecuteReader();
                     try
@@ -78,10 +78,10 @@ namespace A
         {
             string oldstring = literal;
             Dictionary<int, string> dc = new Dictionary<int, string>() { {1, "Styczeń"}, {2, "Luty"}, {3, "Marzec"}, {4, "Kwiecień"}, {5, "Maj"}, {6, "Czerwiec"}, {7, "Lipiec"}, {8, "Sierpień"}, {9, "Wrzesień"},
-                {10, "Październik"}, {11, "Listopad"}, {12, "Grudzień"}};
+                {10, "Pazdziernik"}, {11, "Listopad"}, {12, "Grudzień"}};
 
             bool bgladki = false, bmarta = false, bmarcin = false, bsadza = false, bpiotr = false;
-            string query = @"SELECT [" + dc[DateTime.Now.Month] + @"] FROM [C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL12.SQLEXPRESS\MSSQL\DATA\DB.MDF].[dbo].[Czynsz] WHERE [ID] = ";
+            string query = @"SELECT `" + dc[DateTime.Now.Month] + @"` FROM `acsm_a0194eca4f70c60`.`Czynsz` WHERE `ID` = ";
             string gladki = query + "1;";
             string marta = query + "2;";
             string marcin = query + "3;";
@@ -103,10 +103,10 @@ namespace A
             for (int i = 0; i < osoby.Count; i++ )
             {
                 //sprawdzanie czy zaplacono
-                SqlConnection myConnection = new SqlConnection(connectionString);
-                SqlCommand myCommand = new SqlCommand(osoby[i].Query, myConnection);
+                MySqlConnection myConnection = new MySqlConnection(connectionString);
+                MySqlCommand myCommand = new MySqlCommand(osoby[i].Query, myConnection);
                 myConnection.Open();
-                SqlDataReader reader = myCommand.ExecuteReader();
+                MySqlDataReader reader = myCommand.ExecuteReader();
                 /*if (reader.GetValue(1).ToString() == "0") */
                 while (reader.Read())
                 {
@@ -150,7 +150,8 @@ namespace A
                     oldstring = oldstring.Replace(pattern, newpattern);
                     
                 }
-                Literal2.Text += osoby[i].Bool.ToString();
+                //Literal2.Text += osoby[i].Bool.ToString();
+                myConnection.Close();
             }
 
             return oldstring;

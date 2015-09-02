@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\v11.0;AttachDbFilename=|DataDirectory|\aspnet-A-20150805094124.mdf;Initial Catalog=aspnet-A-20150805094124;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ivs002\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="DBConnectionString-Web.config Connection String" description="DBConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DB.mdf;Initial Catalog=DB;Integrated Security=True;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ivs002\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DBConnectionString']/@connectionString" />
+  </parameter>
+  <parameter name="DBCon-Web.config Connection String" description="DBCon Connection String used in web.config by the application to access the database." defaultValue="C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\App_Data\DB.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ivs002\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DBCon']/@connectionString" />
+  </parameter>
+</parameters>
