@@ -69,7 +69,7 @@ namespace A
                     }
                     //podkreslenie dluznika
                     Literal1.Text = Alert(Literal1.Text, connectionString);
-                        
+                    conn.Close();    
                 }
             }
         }
