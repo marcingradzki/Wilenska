@@ -128,7 +128,7 @@
             UPDATE Opłaty, media
                 SET Opłaty.Woda = (12.34 + ((Media.Woda_zimna + Media.Woda_ciepła)*7.88) + (13.09 * Media.Woda_ciepła)) * Opłaty.Helper ,
                 Opłaty.Prąd = (Media.Prąd * 0.56 + 4.75) * Opłaty.Helper,
-                Opłaty.Gaz = (Media.Gaz * 0.2 + 9.2) * Opłaty.Helper,
+                Opłaty.Gaz = (Media.Gaz * 2.2 + 9.2) * Opłaty.Helper,
                 opłaty.czynsz = opłaty.czynsz * opłaty.helper,
                 opłaty.internet = opłaty.internet * opłaty.helper,
                 opłaty.składka = opłaty.składka * opłaty.Helper
@@ -140,7 +140,7 @@
             "UPDATE Opłaty, media
                 SET Opłaty.Woda = (12.34 + ((Media.Woda_zimna + Media.Woda_ciepła)*7.88) + (13.09 * Media.Woda_ciepła)) * Opłaty.Helper ,
                 Opłaty.Prąd = (Media.Prąd * 0.56 + 4.75) * Opłaty.Helper,
-                Opłaty.Gaz = (Media.Gaz * 0.2 + 9.2) * Opłaty.Helper,
+                Opłaty.Gaz = (Media.Gaz * 2.2 + 9.2) * Opłaty.Helper,
                 opłaty.czynsz = opłaty.czynsz * opłaty.helper,
                 opłaty.internet = opłaty.internet * opłaty.helper,
                 opłaty.składka = opłaty.składka * opłaty.helper

@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using A.Models;
+using System.Data.Entity;
 
 namespace A.Models
 {
@@ -29,10 +30,21 @@ namespace A.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        //public ApplicationDbContext()
+        //    : base("DefaultConnection", throwIfV1Schema: false)
+        //{
+        //}
+
+        static ApplicationDbContext()
+        {
+            Database.SetInitializer(new MySqlInitializer());
+        }
+
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+                  : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+
 
         public static ApplicationDbContext Create()
         {
@@ -98,3 +110,25 @@ namespace A
     }
 }
 #endregion
+
+//namespace A.Models
+//{
+//    // You can add profile data for the user by adding more properties to your ApplicationUser
+//    // class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
+//    public class ApplicationUser : IdentityUser
+//    {
+//    }
+
+//    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+//    {
+//static ApplicationDbContext()
+//{
+//    Database.SetInitializer(new MySqlInitializer());
+//}
+
+//public ApplicationDbContext()
+//          : base("DefaultConnection")
+//        {
+//}
+//    }
+//}
