@@ -3,15 +3,24 @@ using System.Collections.Generic;
 using System.Web.UI;
 using MySql.Data.MySqlClient;
 using System.Web.Configuration;
-
+using System.Data;
+using System.IO;
+using System.Text.RegularExpressions;
 
 namespace A
 {
     public partial class _Default : Page
     {
+
+        //public string bartek = childTable();
+        //public string bartek1 = "bartek";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //viewTable();
+            //Literal2.Text = childTable("bartek");
+            //File.WriteAllText(@"C:\Users\ivs002\Desktop\error.txt", childTable("bartek"));
+            
         }
         
         protected void viewTable(object sender, EventArgs e)
@@ -31,7 +40,7 @@ namespace A
                 list.Add("<TH class='success'>" + item + "</TH>");
             }
             List<string> l = Month(list);
-
+            int count = 0;
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -51,12 +60,14 @@ namespace A
                         Literal1.Text += "</TR>";
                         while (reader.Read())
                         {
-                            row += "<TR>";
+
+                            row += "<TR" + " id='" + count.ToString() + "'" + " onclick='myFunction" + count.ToString() + "()'" + ">";
                             for (int i = 1; i < reader.FieldCount; i++)
                             {
                                 row +=  "<TD>"+ reader.GetString(i) +"</TD>";
                             }
                             row += "</TR>";
+                            count++;
                         }
                         Literal1.Text += row;
                         Literal1.Text += "</TABLE>";
@@ -68,11 +79,50 @@ namespace A
                         
                     }
                     //podkreslenie dluznika
-                    Literal1.Text = Alert(Literal1.Text, connectionString);
+                    Literal1.Text = attacheChildTables(Alert(Literal1.Text, connectionString));
+                    //File.WriteAllText(@"C:\Users\ivs002\Desktop\error.txt", Literal1.Text);
                     conn.Close();    
                 }
             }
         }
+
+        protected string attacheChildTables(string literal)
+        {
+            string[] names = new string[5] { "bartek", "marta", "marcin", "sylwek", "piotrek" };
+            string[] ids = new string[5] { "z0", "z1", "z2", "z3", "z4" };
+            int last;
+            int i = 0;
+            
+            string oldstring = literal;
+            string pattern = "</TD></TR><TR id='1'";
+            string newpattern = "</TD></TR>" + "<TR id='" + ids[i] + "' class='hide'><TD colspan='2'>" + childTable(names[i]) + "</TD></TR><TR id='1'";
+            oldstring = oldstring.Replace(pattern, newpattern);
+            i++;
+
+            pattern = "</TD></TR><TR id='2'";
+            newpattern = "</TD></TR>" + "<TR id='" + ids[i] + "' class='hide'><TD>" + childTable(names[i]) + "</TD></TR><TR id='2'";
+            oldstring = oldstring.Replace(pattern, newpattern);
+            i++;
+
+            pattern = "</TD></TR><TR id='3'";
+            newpattern = "</TD></TR>" + "<TR id='" + ids[i] + "' class='hide'><TD>" + childTable(names[i]) + "</TD></TR><TR id='3'";
+            oldstring = oldstring.Replace(pattern, newpattern);
+            i++;
+
+            pattern = "</TD></TR><TR id='4'";
+            newpattern = "</TD></TR>" + "<TR id='" + ids[i] + "' class='hide'><TD>" + childTable(names[i]) + "</TD></TR><TR id='4'";
+            oldstring = oldstring.Replace(pattern, newpattern);
+            i++;
+
+            pattern = "</TD></TR></TABLE>";
+            newpattern = "</TD></TR>" + "<TR id='" + ids[i] + "' class='hide'><TD>" + childTable(names[i]) + "</TD></TR></TABLE>";
+            last = oldstring.Length - 18;
+            oldstring = oldstring.Remove(last, 18);
+            oldstring = oldstring + newpattern;
+            return oldstring;
+        }
+
+        //<tr  id='0'><td><TABLE class='smallTable table table-hover'; ><TH class='info'>Czynsz</TH><TH class='info'>Internet</TH><TH class='info'>Składka</TH><TR><TD>0,00</TD><TD>0,00</TD><TD>0,00</TD></TR></TABLE></td></tr>
 
         protected string Alert(string literal, string connectionString) //podkresla dluznikow
         {
@@ -117,36 +167,37 @@ namespace A
                 //ustawienie podkreslenia
                 if (osoby[0].Bool)
                 {
-                    string pattern = "<TR><TD>Bartłomiej";
-                    string newpattern = "<TR class='danger'><TD>Bartłomiej";
+                   //"<tr id="1" onclick="myFunction1()">"
+                    string pattern = "<TR id='0' onclick='myFunction0()'><TD>Bartłomiej";
+                    string newpattern = "<TR id='0' onclick='myFunction0()' class='danger'><TD>Bartłomiej";
                     oldstring = oldstring.Replace(pattern, newpattern);
                     
                 }
                 if (osoby[1].Bool)
                 {
-                    string pattern = "<TR><TD>Marta";
-                    string newpattern = "<TR class='danger'><TD>Marta";
+                    string pattern = "<TR id='1' onclick='myFunction1()'><TD>Marta";
+                    string newpattern = "<TR id='1' onclick='myFunction1()' class='danger'><TD>Marta";
                     oldstring = oldstring.Replace(pattern, newpattern);
                     
                 }
                 if (osoby[2].Bool)
                 {
-                    string pattern = "<TR><TD>Marcin";
-                    string newpattern = "<TR class='danger'><TD>Marcin";
+                    string pattern = "<TR id='2' onclick='myFunction2()'><TD>Marcin";
+                    string newpattern = "<TR id='2' onclick='myFunction2()' class='danger'><TD>Marcin";
                     oldstring = oldstring.Replace(pattern, newpattern);
                     
                 }
                 if (osoby[3].Bool)
                 {
-                    string pattern = "<TR><TD>Sylwester";
-                    string newpattern = "<TR class='danger'><TD>Sylwester";
+                    string pattern = "<TR id='3' onclick='myFunction3()'><TD>Sylwester";
+                    string newpattern = "<TR id='3' onclick='myFunction3()' class='danger'><TD>Sylwester";
                     oldstring = oldstring.Replace(pattern, newpattern);
                     
                 }
                 if (osoby[4].Bool)
                 {
-                    string pattern = "<TR><TD>Piotr";
-                    string newpattern = "<TR class='danger'><TD>Piotr";
+                    string pattern = "<TR id='4' onclick='myFunction4()'><TD>Piotr";
+                    string newpattern = "<TR id='4' onclick='myFunction4()' class='danger'><TD>Piotr";
                     oldstring = oldstring.Replace(pattern, newpattern);
                     
                 }
@@ -175,6 +226,23 @@ namespace A
         {
             public bool Bool { get; set; }
             public string Query {get; set;}
+        }
+
+        static protected string childTable(string who)
+        {
+            string table = @"<TABLE class='smallTable table table-hover'; ><TH class='info'>Czynsz</TH><TH class='info'>Internet</TH><TH class='info'>Składka</TH><TR>";
+            MySqlConnection myConn = new MySqlConnection(WebConfigurationManager.ConnectionStrings["DBConnectionString"].ToString());
+            MySqlCommand command = new MySqlCommand("SELECT Czynsz, Internet, Składka FROM " + who, myConn);
+            myConn.Open();
+            var reader = command.ExecuteReader(CommandBehavior.CloseConnection);
+            reader.Read();
+            for (int i = 0; i < reader.FieldCount; i++)
+            {
+                table += "<TD>" + reader.GetString(i) + "</TD>";
+            }
+            table += "</TR></TABLE>";
+            myConn.Close();
+            return table;
         }
 
     }

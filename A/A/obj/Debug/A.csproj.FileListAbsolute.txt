@@ -89,25 +89,14 @@ C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\Microsoft.Web.Infrastructure.d
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\Microsoft.WindowsAzure.Configuration.dll
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\Microsoft.WindowsAzure.Diagnostics.dll
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\Microsoft.WindowsAzure.Storage.dll
-C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\MySql.Data.dll
-C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\MySql.Fabric.Plugin.dll
-C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\MySql.Web.dll
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\MySql.Web.v20.dll
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\Newtonsoft.Json.dll
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\Owin.dll
-C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\System.Data.Entity.dll
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\System.Spatial.dll
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\System.Web.Optimization.dll
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\System.Web.Providers.dll
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\WebGrease.dll
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\MonAgentListener.dll
-C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\WebMatrix.WebData.dll
-C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\System.Web.WebPages.dll
-C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\WebMatrix.Data.dll
-C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\System.Web.WebPages.Razor.dll
-C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\System.Web.Helpers.dll
-C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\System.Web.Razor.dll
-C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\System.Web.WebPages.Deployment.dll
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\Microsoft.ApplicationInsights.xml
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\Microsoft.ApplicationInsights.Extensibility.DependencyCollector.xml
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\Microsoft.ApplicationInsights.Extensibility.Web.xml
@@ -137,13 +126,6 @@ C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\Microsoft.Owin.Security.Google
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\WebMatrix.WebData.xml
-C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\System.Web.WebPages.xml
-C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\WebMatrix.Data.xml
-C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\System.Web.WebPages.Razor.xml
-C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\System.Web.Helpers.xml
-C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\System.Web.Razor.xml
-C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\System.Web.WebPages.Deployment.xml
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\de\Microsoft.Data.Edm.resources.dll
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\es\Microsoft.Data.Edm.resources.dll
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\fr\Microsoft.Data.Edm.resources.dll
@@ -182,8 +164,6 @@ C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\zh-Hans\System.Spatial.resourc
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\zh-Hant\System.Spatial.resources.dll
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\obj\Debug\A.dll
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\obj\Debug\A.pdb
-C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\obj\Debug\A.csprojResolveAssemblyReference.cache
-C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\MySql.Data.Entity.EF6.dll
 C:\Users\ivs002\Documents\GitHub\Wilenska - Kopia\A\A\bin\Microsoft.ApplicationInsights.Extensions.Intercept_x86.dll
 C:\Users\ivs002\Documents\GitHub\Wilenska - Kopia\A\A\bin\Microsoft.ApplicationInsights.Extensions.Intercept_x64.dll
 C:\Users\ivs002\Documents\GitHub\Wilenska - Kopia\A\A\bin\A.dll.config
@@ -318,3 +298,6 @@ C:\Users\ivs002\Documents\GitHub\Wilenska - Kopia\A\A\bin\zh-Hant\System.Spatial
 C:\Users\ivs002\Documents\GitHub\Wilenska - Kopia\A\A\obj\Debug\A.csprojResolveAssemblyReference.cache
 C:\Users\ivs002\Documents\GitHub\Wilenska - Kopia\A\A\obj\Debug\A.dll
 C:\Users\ivs002\Documents\GitHub\Wilenska - Kopia\A\A\obj\Debug\A.pdb
+C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\MySql.Fabric.Plugin.dll
+C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\MySql.Data.Entity.EF6.dll
+C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\obj\Debug\A.csprojResolveAssemblyReference.cache

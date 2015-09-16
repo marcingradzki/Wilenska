@@ -8,11 +8,37 @@
         background-color: #FF9175;
     }
     </style>
+
+    <script>
+   
+        function myFunction0() {
+            document.getElementById("0").innerHTML = "NULL";
+        }
+
+        function myFunction1() {
+            document.getElementById("1").innerHTML = "NULL";
+        }
+
+        function myFunction2() {
+            document.getElementById("2").innerHTML = "NULL";
+        }
+
+        function myFunction3() {
+            document.getElementById("3").innerHTML = "NULL";
+        }
+
+        function myFunction4() {
+            document.getElementById("4").innerHTML = "NULL";
+        }
+
+    </script>
+
+
     <div class="jumbotron">
         <h1>Wileńska</h1>
         <p class="lead">Aktualne informacje na temat mediów naszego mieszkania</p>
-        <p><asp:LinkButton ID="MyLink" runat="server" OnClick="viewTable" Text="Wyświetl status &raquo" class="btn btn-primary btn-lg"  ></asp:LinkButton></p>
-        
+        <p><asp:LinkButton ID="MyLink" runat="server" Text="Wyświetl status &raquo" class="btn btn-primary btn-lg"  onClick="Test"></asp:LinkButton></p>
+        <asp:Literal ID="tabela" runat="server" OnLoad="viewTable"></asp:Literal>
     </div>
 
     <p><asp:Literal ID="Literal1" runat="server"></asp:Literal>
@@ -46,7 +72,7 @@
                 Przekierowanie do naszej grupy na Facebook'u. 
             </p>
             <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301950">Przejdź &raquo;</a>
+                <a class="btn btn-default" href="https://www.facebook.com/groups/902275869827568/">Przejdź &raquo;</a>
             </p>
         </div>
     </div>

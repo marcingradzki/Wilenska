@@ -1,0 +1,101 @@
+CREATE TABLE IF NOT EXISTS op³aty (
+  ID int(11) NOT NULL AUTO_INCREMENT,
+  Miesi¹c varchar(45) DEFAULT NULL,
+  Woda decimal(18,2) DEFAULT NULL,
+  Pr¹d decimal(18,2) DEFAULT NULL,
+  Gaz decimal(18,2) DEFAULT NULL,
+  Czynsz decimal(18,2) DEFAULT NULL,
+  Internet decimal(18,2) DEFAULT NULL,
+  Sk³adka decimal(18,2) DEFAULT NULL,
+  Suma_kosztów decimal(18,2) DEFAULT NULL,
+  Helper int(10) DEFAULT NULL,
+  PRIMARY KEY (ID)
+)
+CREATE TABLE IF NOT EXISTS media (
+  ID int(11) NOT NULL AUTO_INCREMENT,
+  Miesi¹c varchar(45) DEFAULT NULL,
+  Woda_zimna decimal(18,6) DEFAULT NULL,
+  Woda_ciep³a decimal(18,6) DEFAULT NULL,
+  Pr¹d decimal(18,6) DEFAULT NULL,
+  Gaz decimal(18,6) DEFAULT NULL,
+  PRIMARY KEY (ID)
+)
+CREATE TABLE IF NOT EXISTS czynsz (
+  ID int(11) NOT NULL AUTO_INCREMENT,
+  Imiê varchar(45) DEFAULT NULL,
+  Nazwisko varchar(45) DEFAULT NULL,
+  Lipiec varchar(45) DEFAULT NULL,
+  Sierpieñ varchar(45) DEFAULT NULL,
+  Wrzesieñ varchar(45) DEFAULT NULL,
+  Pazdziernik varchar(45) DEFAULT NULL,
+  Listopad varchar(45) DEFAULT NULL,
+  Grudzieñ varchar(45) DEFAULT NULL,
+  Styczeñ varchar(45) DEFAULT NULL,
+  Luty varchar(45) DEFAULT NULL,
+  Marzec varchar(45) DEFAULT NULL,
+  Kwiecieñ varchar(45) DEFAULT NULL,
+  Maj varchar(45) DEFAULT NULL,
+  Czerwiec varchar(45) DEFAULT NULL,
+  PRIMARY KEY (ID)
+)
+INSERT INTO `acsm_a0194eca4f70c60`.`op³aty` (`ID`, `Miesi¹c`, `Woda`, `Pr¹d`, `Gaz`, `Czynsz`, `Internet`, `Sk³adka`, `Suma_kosztów`, `Helper`) VALUES ('1', 'Lipiec', '0', '0', '0', '0', '0', '0', '0', '1');
+INSERT INTO `acsm_a0194eca4f70c60`.`op³aty` (`ID`, `Miesi¹c`, `Woda`, `Pr¹d`, `Gaz`, `Czynsz`, `Internet`, `Sk³adka`, `Suma_kosztów`, `Helper`) VALUES ('2', 'Sierpieñ', '0', '0', '0', '0', '0', '0', '0', '1');
+INSERT INTO `acsm_a0194eca4f70c60`.`op³aty` (`ID`, `Miesi¹c`, `Woda`, `Pr¹d`, `Gaz`, `Czynsz`, `Internet`, `Sk³adka`, `Suma_kosztów`, `Helper`) VALUES ('3', 'Wrzesieñ', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`op³aty` (`ID`, `Miesi¹c`, `Woda`, `Pr¹d`, `Gaz`, `Czynsz`, `Internet`, `Sk³adka`, `Suma_kosztów`, `Helper`) VALUES ('4', 'Pazdziernik', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`op³aty` (`ID`, `Miesi¹c`, `Woda`, `Pr¹d`, `Gaz`, `Czynsz`, `Internet`, `Sk³adka`, `Suma_kosztów`, `Helper`) VALUES ('5', 'Listopad', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`op³aty` (`ID`, `Miesi¹c`, `Woda`, `Pr¹d`, `Gaz`, `Czynsz`, `Internet`, `Sk³adka`, `Suma_kosztów`, `Helper`) VALUES ('6', 'Grudzieñ', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`op³aty` (`ID`, `Miesi¹c`, `Woda`, `Pr¹d`, `Gaz`, `Czynsz`, `Internet`, `Sk³adka`, `Suma_kosztów`, `Helper`) VALUES ('7', 'Styczeñ', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`op³aty` (`ID`, `Miesi¹c`, `Woda`, `Pr¹d`, `Gaz`, `Czynsz`, `Internet`, `Sk³adka`, `Suma_kosztów`, `Helper`) VALUES ('8', 'Luty', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`op³aty` (`ID`, `Miesi¹c`, `Woda`, `Pr¹d`, `Gaz`, `Czynsz`, `Internet`, `Sk³adka`, `Suma_kosztów`, `Helper`) VALUES ('9', 'Marzec', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`op³aty` (`ID`, `Miesi¹c`, `Woda`, `Pr¹d`, `Gaz`, `Czynsz`, `Internet`, `Sk³adka`, `Suma_kosztów`, `Helper`) VALUES ('10', 'Kwiecieñ', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`op³aty` (`ID`, `Miesi¹c`, `Woda`, `Pr¹d`, `Gaz`, `Czynsz`, `Internet`, `Sk³adka`, `Suma_kosztów`, `Helper`) VALUES ('11', 'Maj', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`op³aty` (`ID`, `Miesi¹c`, `Woda`, `Pr¹d`, `Gaz`, `Czynsz`, `Internet`, `Sk³adka`, `Suma_kosztów`, `Helper`) VALUES ('12', 'Czerwiec', '0', '0', '0', '0', '0', '0', '0', '0');
+
+INSERT INTO `acsm_a0194eca4f70c60`.`media` (`ID`, `Miesi¹c`, `Woda_zimna`, `Woda_ciep³a`, `Pr¹d`, `Gaz`) VALUES ('1', 'Lipiec', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`media` (`ID`, `Miesi¹c`, `Woda_zimna`, `Woda_ciep³a`, `Pr¹d`, `Gaz`) VALUES ('2', 'Sierpieñ', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`media` (`ID`, `Miesi¹c`, `Woda_zimna`, `Woda_ciep³a`, `Pr¹d`, `Gaz`) VALUES ('3', 'Wrzesieñ', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`media` (`ID`, `Miesi¹c`, `Woda_zimna`, `Woda_ciep³a`, `Pr¹d`, `Gaz`) VALUES ('4', 'Pazdziernik', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`media` (`ID`, `Miesi¹c`, `Woda_zimna`, `Woda_ciep³a`, `Pr¹d`, `Gaz`) VALUES ('5', 'Listopad', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`media` (`ID`, `Miesi¹c`, `Woda_zimna`, `Woda_ciep³a`, `Pr¹d`, `Gaz`) VALUES ('6', 'Grudzieñ', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`media` (`ID`, `Miesi¹c`, `Woda_zimna`, `Woda_ciep³a`, `Pr¹d`, `Gaz`) VALUES ('7', 'Styczeñ', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`media` (`ID`, `Miesi¹c`, `Woda_zimna`, `Woda_ciep³a`, `Pr¹d`, `Gaz`) VALUES ('8', 'Luty', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`media` (`ID`, `Miesi¹c`, `Woda_zimna`, `Woda_ciep³a`, `Pr¹d`, `Gaz`) VALUES ('9', 'Marzec', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`media` (`ID`, `Miesi¹c`, `Woda_zimna`, `Woda_ciep³a`, `Pr¹d`, `Gaz`) VALUES ('10', 'Kwiecieñ', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`media` (`ID`, `Miesi¹c`, `Woda_zimna`, `Woda_ciep³a`, `Pr¹d`, `Gaz`) VALUES ('11', 'Maj', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`media` (`ID`, `Miesi¹c`, `Woda_zimna`, `Woda_ciep³a`, `Pr¹d`, `Gaz`) VALUES ('12', 'Czerwiec', '0', '0', '0', '0');
+
+INSERT INTO `acsm_a0194eca4f70c60`.`czynsz` (`ID`, `Imiê`, `Nazwisko`, `Lipiec`, `Sierpieñ`, `Wrzesieñ`, `Pazdziernik`, `Listopad`, `Grudzieñ`, `Styczeñ`, `Luty`, `Marzec`, `Kwiecieñ`, `Maj`, `Czerwiec`) VALUES ('1', 'Bart³omiej', 'G³adkiewicz', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`czynsz` (`ID`, `Imiê`, `Nazwisko`, `Lipiec`, `Sierpieñ`, `Wrzesieñ`, `Pazdziernik`, `Listopad`, `Grudzieñ`, `Styczeñ`, `Luty`, `Marzec`, `Kwiecieñ`, `Maj`, `Czerwiec`) VALUES ('2', 'Marta', 'Rajska', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`czynsz` (`ID`, `Imiê`, `Nazwisko`, `Lipiec`, `Sierpieñ`, `Wrzesieñ`, `Pazdziernik`, `Listopad`, `Grudzieñ`, `Styczeñ`, `Luty`, `Marzec`, `Kwiecieñ`, `Maj`, `Czerwiec`) VALUES ('3', 'Marcin', 'Gr¹dzki', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`czynsz` (`ID`, `Imiê`, `Nazwisko`, `Lipiec`, `Sierpieñ`, `Wrzesieñ`, `Pazdziernik`, `Listopad`, `Grudzieñ`, `Styczeñ`, `Luty`, `Marzec`, `Kwiecieñ`, `Maj`, `Czerwiec`) VALUES ('4', 'Sylwester', 'Sadza', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `acsm_a0194eca4f70c60`.`czynsz` (`ID`, `Imiê`, `Nazwisko`, `Lipiec`, `Sierpieñ`, `Wrzesieñ`, `Pazdziernik`, `Listopad`, `Grudzieñ`, `Styczeñ`, `Luty`, `Marzec`, `Kwiecieñ`, `Maj`, `Czerwiec`) VALUES ('5', 'Piotr', 'Stachniuk', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
+
+CREATE TABLE `acsm_a0194eca4f70c60`.`bartek` (
+  `Czynsz` DECIMAL(18,2) NULL COMMENT '',
+  `Internet` DECIMAL(18,2) NULL COMMENT '',
+  `Sk³adka` DECIMAL(18,2) NULL COMMENT '',
+  PRIMARY KEY (`Czynsz`)  COMMENT '');
+
+CREATE TABLE `acsm_a0194eca4f70c60`.`marta` (
+  `Czynsz` DECIMAL(18,2) NULL COMMENT '',
+  `Internet` DECIMAL(18,2) NULL COMMENT '',
+  `Sk³adka` DECIMAL(18,2) NULL COMMENT '',
+  PRIMARY KEY (`Czynsz`)  COMMENT '');
+
+CREATE TABLE `acsm_a0194eca4f70c60`.`marcin` (
+  `Czynsz` DECIMAL(18,2) NULL COMMENT '',
+  `Internet` DECIMAL(18,2) NULL COMMENT '',
+  `Sk³adka` DECIMAL(18,2) NULL COMMENT '',
+  PRIMARY KEY (`Czynsz`)  COMMENT '');
+
+CREATE TABLE `acsm_a0194eca4f70c60`.`sylwek` (
+  `Czynsz` DECIMAL(18,2) NULL COMMENT '',
+  `Internet` DECIMAL(18,2) NULL COMMENT '',
+  `Sk³adka` DECIMAL(18,2) NULL COMMENT '',
+  PRIMARY KEY (`Czynsz`)  COMMENT '');
+
+CREATE TABLE `acsm_a0194eca4f70c60`.`piotrek` (
+  `Czynsz` DECIMAL(18,2) NULL COMMENT '',
+  `Internet` DECIMAL(18,2) NULL COMMENT '',
+  `Sk³adka` DECIMAL(18,2) NULL COMMENT '',
+  PRIMARY KEY (`Czynsz`)  COMMENT '');

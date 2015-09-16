@@ -14,10 +14,10 @@ namespace A
         {
             string myConnectionString = WebConfigurationManager.ConnectionStrings["DBConnectionString"].ToString();
 
-            string mySelectQueryWodaZimna = @"SELECT Miesiąc, Woda_zimna FROM `acsm_a0194eca4f70c60`.`Media`; ";
-            string mySelectQueryWodaCiepla = @"SELECT Miesiąc, Woda_ciepła FROM `acsm_a0194eca4f70c60`.`Media`; ";
-            string mySelectQueryPrad = @"SELECT Miesiąc, Prąd FROM `acsm_a0194eca4f70c60`.`Media`; ";
-            string mySelectQueryGaz = @"SELECT Miesiąc, Gaz FROM `acsm_a0194eca4f70c60`.`Media`; ";
+            string mySelectQueryWodaZimna = @"SELECT Miesiąc, Woda_zimna FROM `acsm_a0194eca4f70c60`.`Media_zuzycie`; ";
+            string mySelectQueryWodaCiepla = @"SELECT Miesiąc, Woda_ciepła FROM `acsm_a0194eca4f70c60`.`Media_zuzycie`; ";
+            string mySelectQueryPrad = @"SELECT Miesiąc, Prąd FROM `acsm_a0194eca4f70c60`.`Media_zuzycie`; ";
+            string mySelectQueryGaz = @"SELECT Miesiąc, Gaz FROM `acsm_a0194eca4f70c60`.`Media_zuzycie`; ";
             string x = "Miesiąc";
             string zimna = "Woda_zimna";
             string ciepla = "Woda_ciepła";

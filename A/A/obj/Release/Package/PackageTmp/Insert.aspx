@@ -26,6 +26,7 @@
         </asp:GridView>
         <asp:SqlDataSource ID="status" runat="server" ConnectionString="<%$ ConnectionStrings:DBConnectionString %>" DeleteCommand="DELETE FROM czynsz WHERE ID = ?" InsertCommand="INSERT INTO czynsz (ID, Imię, Nazwisko, Lipiec, Sierpień, Wrzesień, Pazdziernik, Listopad, Grudzień, Styczeń, Luty, Marzec, Kwiecień, Maj, Czerwiec) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" ProviderName="<%$ ConnectionStrings:DBConnectionString.ProviderName %>" SelectCommand="SELECT * FROM czynsz" UpdateCommand="UPDATE czynsz SET Imię = ?, Nazwisko = ?, Lipiec = ?, Sierpień = ?, Wrzesień = ?, Pazdziernik = ?, Listopad = ?,Grudzień = ?, Styczeń = ?, Luty = ?, Marzec = ?, Kwiecień = ?, Maj = ?, Czerwiec = ? WHERE ID = ?">
             <DeleteParameters>
+                
                 <asp:Parameter Name="ID" Type="Int32" />
             </DeleteParameters>
             <InsertParameters>
@@ -123,15 +124,14 @@
         
     
 
-    <asp:SqlDataSource ID="opłaty" runat="server" ConnectionString="<%$ ConnectionStrings:DBConnectionString %>" ProviderName="<%$ ConnectionStrings:DBConnectionString.ProviderName %>" 
-        SelectCommand="
+        <asp:SqlDataSource ID="opłaty" runat="server" ConnectionString="<%$ ConnectionStrings:DBConnectionString %>" ProviderName="<%$ ConnectionStrings:DBConnectionString.ProviderName %>"
+
+            SelectCommand="
             UPDATE Opłaty, media
                 SET Opłaty.Woda = (12.34 + ((Media.Woda_zimna + Media.Woda_ciepła)*7.88) + (13.09 * Media.Woda_ciepła)) * Opłaty.Helper ,
                 Opłaty.Prąd = (Media.Prąd * 0.56 + 4.75) * Opłaty.Helper,
-                Opłaty.Gaz = (Media.Gaz * 0.2 + 9.2) * Opłaty.Helper,
-                opłaty.czynsz = opłaty.czynsz * opłaty.helper,
-                opłaty.internet = opłaty.internet * opłaty.helper,
-                opłaty.składka = opłaty.składka * opłaty.Helper
+                Opłaty.Gaz = (Media.Gaz * 2.2 + 9.2) * Opłaty.Helper
+               
                 WHERE Opłaty.ID = media.ID;
                 UPDATE Opłaty, media
                 SET Opłaty.Suma_kosztów = (Opłaty.Woda + Opłaty.Prąd + Opłaty.Gaz + opłaty.czynsz)
@@ -140,25 +140,77 @@
             "UPDATE Opłaty, media
                 SET Opłaty.Woda = (12.34 + ((Media.Woda_zimna + Media.Woda_ciepła)*7.88) + (13.09 * Media.Woda_ciepła)) * Opłaty.Helper ,
                 Opłaty.Prąd = (Media.Prąd * 0.56 + 4.75) * Opłaty.Helper,
-                Opłaty.Gaz = (Media.Gaz * 0.2 + 9.2) * Opłaty.Helper,
-                opłaty.czynsz = opłaty.czynsz * opłaty.helper,
-                opłaty.internet = opłaty.internet * opłaty.helper,
-                opłaty.składka = opłaty.składka * opłaty.helper
+                Opłaty.Gaz = (Media.Gaz * 2.2 + 9.2) * Opłaty.Helper
+                
+                WHERE Opłaty.ID = media.ID;
+                UPDATE Opłaty, media
+                SET Opłaty.Suma_kosztów = (Opłaty.Woda + Opłaty.Prąd + Opłaty.Gaz + opłaty.czynsz)
+                Where Opłaty.ID = Media.ID;
+                
+                UPDATE opłaty SET Helper = ?, Czynsz = ?, Internet = ?, Składka = ? WHERE ID = ?;
+                SELECT * FROM Opłaty" >
+        <UpdateParameters>
+            <asp:Parameter Name="Helper" Type="Int32" />
+            <asp:Parameter Name="Czynsz" Type="Int32" />
+            <asp:Parameter Name="Internet" Type="Decimal" />
+            <asp:Parameter Name="Składka" Type="Decimal" />
+            <asp:Parameter Name="ID" Type="Int32" />
+            </UpdateParameters>
+    </asp:SqlDataSource>
+
+    <!--
+        SelectCommand="
+            UPDATE Opłaty, media
+                SET Opłaty.Woda = (12.34 + ((Media.Woda_zimna + Media.Woda_ciepła)*7.88) + (13.09 * Media.Woda_ciepła)) * Opłaty.Helper ,
+                Opłaty.Prąd = (Media.Prąd * 0.56 + 4.75) * Opłaty.Helper,
+                Opłaty.Gaz = (Media.Gaz * 2.2 + 9.2) * Opłaty.Helper
+
+                WHERE Opłaty.ID = media.ID;
+                UPDATE Opłaty, media
+                SET Opłaty.Suma_kosztów = (Opłaty.Woda + Opłaty.Prąd + Opłaty.Gaz + opłaty.czynsz)
+                Where Opłaty.ID = Media.ID; SELECT * FROM Opłaty"
+            UpdateCommand=
+            "UPDATE Opłaty, media
+                SET Opłaty.Woda = (12.34 + ((Media.Woda_zimna + Media.Woda_ciepła)*7.88) + (13.09 * Media.Woda_ciepła)) * Opłaty.Helper ,
+                Opłaty.Prąd = (Media.Prąd * 0.56 + 4.75) * Opłaty.Helper,
+                Opłaty.Gaz = (Media.Gaz * 2.2 + 9.2) * Opłaty.Helper
+                
                 WHERE Opłaty.ID = media.ID;
                 UPDATE Opłaty, media
                 SET Opłaty.Suma_kosztów = (Opłaty.Woda + Opłaty.Prąd + Opłaty.Gaz + opłaty.czynsz)
                 Where Opłaty.ID = Media.ID;
                 UPDATE  opłaty  SET  Helper  = ? WHERE  ID  = ?;
+                UPDATE  opłaty  SET  Czynsz  = ? WHERE  ID  = ?;
+                UPDATE  opłaty  SET  Internet  = ? WHERE  ID  = ?;
+                UPDATE  opłaty  SET  Składka  = ? WHERE  ID  = ?;
                 SELECT * FROM Opłaty" >
         <UpdateParameters>
             <asp:Parameter Name="Helper" Type="Int32" />
             <asp:Parameter Name="ID" Type="Int32" />
+            <asp:Parameter Name="Czynsz" Type="Int32" />
+            <asp:Parameter Name="Internet" Type="Decimal" />
+            <asp:Parameter Name="Składka" Type="Decimal" />
             </UpdateParameters>
-    </asp:SqlDataSource>
-    
-    <asp:Literal ID="Literal1" runat="server"></asp:Literal>
-    
-   <!-- SelectCommand="
+        
+        -->
+
+
+
+
+
+
+
+
+
+
+   <!-- 
+                opłaty.czynsz = opłaty.czynsz * opłaty.helper,
+                opłaty.internet = opłaty.internet * opłaty.helper,
+                opłaty.składka = opłaty.składka * opłaty.Helper
+       
+       
+       
+       SelectCommand="
             UPDATE Opłaty, media
                 SET Opłaty.Woda = (12.34 + ((Media.Woda_zimna + Media.Woda_ciepła)*7.88) + (13.09 * Media.Woda_ciepła)) * Opłaty.Helper ,
                 Opłaty.Prąd = (Media.Prąd * 0.56 + 4.75) * Opłaty.Helper,
