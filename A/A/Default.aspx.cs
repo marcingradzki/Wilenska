@@ -17,7 +17,7 @@ namespace A
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //viewTable();
+            viewTable(sender,e);
             //Literal2.Text = childTable("bartek");
             //File.WriteAllText(@"C:\Users\ivs002\Desktop\error.txt", childTable("bartek"));
             
@@ -51,7 +51,7 @@ namespace A
                     try
                     {
                         string row = "";
-                        Literal1.Text = @"<TABLE class='table table-hover' >";
+                        Literal1.Text = @"<TABLE class='table table-hover' id='Tabelka' style='display:none'>";
                         Literal1.Text += "<TR>";
                         foreach (var i in l)
                         {
@@ -144,7 +144,8 @@ namespace A
                 new Osoby(){Bool = bmarta, Query = marta},
                 new Osoby(){Bool = bmarcin, Query = marcin},
                 new Osoby(){Bool = bsadza, Query = sadza},
-                new Osoby(){Bool = bpiotr, Query = piotr}
+                new Osoby(){Bool = bpiotr, Query = piotr},
+
             };
             
             string temp = "";
@@ -169,7 +170,7 @@ namespace A
                 {
                    //"<tr id="1" onclick="myFunction1()">"
                     string pattern = "<TR id='0' onclick='myFunction0()'><TD>Bartłomiej";
-                    string newpattern = "<TR id='0' onclick='myFunction0()' class='danger'><TD>Bartłomiej";
+                    string newpattern = "<TR id='0' onclick='myFunction0()' class='danger'><TD>Bartłomiej";//
                     oldstring = oldstring.Replace(pattern, newpattern);
                     
                 }
@@ -230,14 +231,16 @@ namespace A
 
         static protected string childTable(string who)
         {
-            string table = @"<TABLE class='smallTable table table-hover'; ><TH class='info'>Czynsz</TH><TH class='info'>Internet</TH><TH class='info'>Składka</TH><TR>";
+            string table = @"<TABLE class='smallTable table table-hover';><TH class='info'>Czynsz</TH><TH class='info'>Internet</TH><TH class='info'>Składka</TH><TR>";
             MySqlConnection myConn = new MySqlConnection(WebConfigurationManager.ConnectionStrings["DBConnectionString"].ToString());
             MySqlCommand command = new MySqlCommand("SELECT Czynsz, Internet, Składka FROM " + who, myConn);
             myConn.Open();
             var reader = command.ExecuteReader(CommandBehavior.CloseConnection);
             reader.Read();
+            //string[] tab = new string[5] { "bartek", "marta", "marcin", "sylwek", "piotrek" };
             for (int i = 0; i < reader.FieldCount; i++)
             {
+                //table += "<TR id='" + tab[i] + "'>";
                 table += "<TD>" + reader.GetString(i) + "</TD>";
             }
             table += "</TR></TABLE>";

@@ -36,16 +36,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
 
-       //funkcja jQuery ukrywająca tabelę
-       /* $(document).ready(function () {
-            $("#0").click(function () {
-                $("#z0").hide();
+        $(document).ready(function () {
+            
+            $("#B").click(function () {
+                $("#Tabelka").fadeToggle();
             });
-            $("#0").click(function () {
-                $("#z0").show();
-            });
-        });
-        */
+        })
+
+        //$(document).ready(function () {
+        //    $("#0").click(function () {
+        //        $("#bartek").fadeToggle();
+        //    });
+        //});
+
+
 
         function changeClass(element) {
             var currentClassValue = element.className;
@@ -59,6 +63,8 @@
                 return;
             }
         }
+
+
 
         function myFunction0() {
             changeClass(z0);
@@ -87,7 +93,8 @@
     <div class="jumbotron">
         <h1>Wileńska</h1>
         <p class="lead">Aktualne informacje na temat mediów naszego mieszkania</p>
-        <p><asp:LinkButton ID="MyLink" runat="server" Text="Wyświetl status &raquo" onClick="viewTable" class="btn btn-primary btn-lg"></asp:LinkButton></p>
+        <p><button type="button" id="B" class="btn btn-primary btn-lg">Wyświetl status &raquo</button></p>
+        
     </div>
 
     <p><asp:Literal ID="Literal1" runat="server"></asp:Literal>

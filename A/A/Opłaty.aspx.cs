@@ -10,7 +10,7 @@ namespace A
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Literal1.Text = "Literal działa\n";
+            //Literal1.Text = "Literal działa\n";
             List<string> list = new List<string>();
             string[] array = new string[8] { "Miesiąc", "Woda", "Prąd", "Gaz", "Czynsz", "Suma kosztów", "Internet", "Składka" };
             string connectionString = WebConfigurationManager.ConnectionStrings["DBConnectionString"].ToString();

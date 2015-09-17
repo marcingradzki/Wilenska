@@ -1,6 +1,22 @@
 ﻿<%@ Page Title="Opłaty" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Opłaty.aspx.cs" Inherits="A.Opłaty" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script> 
+
+
+            $(document).ready(function () {
+                $("#info").slideUp();
+                $("#info").slideDown("slow");
+            });
+
+                
+        
+        </script>
+
+
     <style>
         .alignleft {
 	    float: left;
@@ -16,15 +32,20 @@
         .center {
             text-align: center;
         }
+        .hide{
+            display: none;
+        }
     </style>
+
+    <%--<button type="button" id="flip">G</button>--%>
     <div class="row">
         <div class="alignleft" >
         <h1 ><span class="glyphicon glyphicon-info-sign"></span> <%:  Title %>.</h1>
         <h2 >Archiwum kosztów mieszkaniowych</h2>
         </div>
-    </div>
+    </div >
         <br />
-    <div  >    
+    <div >    
         <div class="col-sm-4 alert alert-danger center" >
         <p class="fontsize"><strong>CZYNSZ I OPŁATY</strong></p>
         <p ><strong>Pieniądze należy wpłacać na konto: </strong></p>
@@ -59,7 +80,7 @@
         <p >Kutno</p>
         </div>
     </div>
-
-    <asp:Literal ID="Literal1" runat="server"></asp:Literal>   
+    <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+    
     
 </asp:Content>

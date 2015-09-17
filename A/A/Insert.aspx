@@ -274,7 +274,6 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
-    <%-- tu trzeba zmienic update, chyba blisko jestem --%>
         <asp:SqlDataSource ID="media" runat="server" ConnectionString="<%$ ConnectionStrings:DBConnectionString %>" 
             DeleteCommand="DELETE FROM  media  WHERE  ID  = ?" 
             InsertCommand="INSERT INTO  media  ( ID ,  Miesiąc ,  Woda_zimna ,  Woda_ciepła ,  Prąd ,  Gaz ) VALUES (?, ?, ?, ?, ?, ?)" 
@@ -354,5 +353,7 @@
             <asp:Parameter Name="ID" Type="Int32" />
             </UpdateParameters>
     </asp:SqlDataSource>
+
+    <asp:SqlDataSource ID="media_zuzycie" runat="server" ConnectionString="<%$ ConnectionStrings:DBConnectionString %>" ProviderName="<%$ ConnectionStrings:DBConnectionString.ProviderName %>"></asp:SqlDataSource>
         </asp:Content>
 

@@ -7,42 +7,99 @@
     {
         background-color: #FF9175;
     }
-    </style>
+    .smallTable
+    {
+        width: 100%;
+        margin-left: auto; 
+        margin-right: auto;
+        display:table-row;
+        
+    }
+    .myTable
+    {
+        border-spacing: 0px;
+        border-collapse: collapse;
+        display:block;
+        width: 100%;
+        
+    }
+    .hide
+    {
+        visibility: hidden;
+    }
+    .show
+    {
+        visibility: visible;
+    }
 
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
-   
-        function myFunction0() {
-            document.getElementById("0").innerHTML = "NULL";
+
+        $(document).ready(function () {
+            
+            $("#B").click(function () {
+                $("#Tabelka").fadeToggle();
+            });
+        })
+
+        //$(document).ready(function () {
+        //    $("#0").click(function () {
+        //        $("#bartek").fadeToggle();
+        //    });
+        //});
+
+
+
+        function changeClass(element) {
+            var currentClassValue = element.className;
+
+            if (currentClassValue == 'hide') {
+                element.className = 'show';
+                return;
+            }
+            else if (currentClassValue == 'show') {
+                element.className = 'hide';
+                return;
+            }
         }
 
+
+
+        function myFunction0() {
+            changeClass(z0);
+            
+        }
+        
         function myFunction1() {
-            document.getElementById("1").innerHTML = "NULL";
+            changeClass(z1);
         }
 
         function myFunction2() {
-            document.getElementById("2").innerHTML = "NULL";
+            changeClass(z2);
         }
 
         function myFunction3() {
-            document.getElementById("3").innerHTML = "NULL";
+            changeClass(z3);
         }
 
         function myFunction4() {
-            document.getElementById("4").innerHTML = "NULL";
+            changeClass(z4);
         }
-
+        
     </script>
 
 
     <div class="jumbotron">
         <h1>Wileńska</h1>
         <p class="lead">Aktualne informacje na temat mediów naszego mieszkania</p>
-        <p><asp:LinkButton ID="MyLink" runat="server" Text="Wyświetl status &raquo" class="btn btn-primary btn-lg"  onClick="Test"></asp:LinkButton></p>
-        <asp:Literal ID="tabela" runat="server" OnLoad="viewTable"></asp:Literal>
+        <p><button type="button" id="B" class="btn btn-primary btn-lg">Wyświetl status &raquo</button></p>
+        
     </div>
 
     <p><asp:Literal ID="Literal1" runat="server"></asp:Literal>
         <asp:Literal ID="Literal2" runat="server"></asp:Literal>
+        
     </p>
 
     <div class="row">

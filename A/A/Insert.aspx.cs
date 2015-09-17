@@ -27,7 +27,7 @@ namespace A
             sylwek.UpdateCommand = updateCommand("sylwek", getMonth(), "260");
             piotrek.SelectCommand = selectCommand("piotrek", month, "260");
             piotrek.UpdateCommand = updateCommand("piotrek", getMonth(), "260");
-            media.UpdateCommand = updateMedia();
+            media_zuzycie.UpdateCommand = updateMedia();
             //literal11.Text = month;
             
             
@@ -138,7 +138,7 @@ namespace A
             status.Update();
 
             media.Update();
-
+            media_zuzycie.Update();
             opłaty.Update();
             
             bartek.Update();
