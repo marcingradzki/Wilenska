@@ -95,7 +95,7 @@ namespace A
             
             string oldstring = literal;
             string pattern = "</TD></TR><TR id='1'";
-            string newpattern = "</TD></TR>" + "<TR id='" + ids[i] + "' class='hide'><TD colspan='2'>" + childTable(names[i]) + "</TD></TR><TR id='1'";
+            string newpattern = "</TD></TR>" + "<TR id='" + ids[i] + "' ><TD colspan='2'>" + childTable(names[i]) + "</TD></TR><TR id='1'";
             oldstring = oldstring.Replace(pattern, newpattern);
             i++;
 

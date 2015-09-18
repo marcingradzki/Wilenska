@@ -25,17 +25,34 @@
     }
     .hide
     {
-        visibility: hidden;
+        /*visibility: hidden;*/
     }
     .show
     {
-        visibility: visible;
+        /*visibility: visible;*/
     }
 
     </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script>
+        //naglowek
+        $(document).ready(function () {
+            $("#jumbo, #oplaty, #media, #face").css("display", "none");
+        })
 
+        $(document).ready(function () {
+            $("#jumbo").fadeIn(1000);
+        });
+        $(document).ready(function () {
+            $("#oplaty").fadeIn(1500);
+        });
+        $(document).ready(function () {
+            $("#media").fadeIn(2000);
+        });
+        $(document).ready(function () {
+            $("#face").fadeIn(2500);
+        });
+        //tabelka
         $(document).ready(function () {
             
             $("#B").click(function () {
@@ -43,6 +60,9 @@
             });
         })
 
+        $(document).ready(function () {
+            $("#z0").css("display", "none");
+        })
         //$(document).ready(function () {
         //    $("#0").click(function () {
         //        $("#bartek").fadeToggle();
@@ -50,7 +70,7 @@
         //});
 
 
-
+        //podtabelki
         function changeClass(element) {
             var currentClassValue = element.className;
 
@@ -67,8 +87,10 @@
 
 
         function myFunction0() {
-            changeClass(z0);
-            
+            //changeClass(z0);
+            $(document).ready(function () {
+                $("#z0").slideToggle(2000);
+            });
         }
         
         function myFunction1() {
@@ -90,7 +112,7 @@
     </script>
 
 
-    <div class="jumbotron">
+    <div class="jumbotron" id="jumbo">
         <h1>Wileńska</h1>
         <p class="lead">Aktualne informacje na temat mediów naszego mieszkania</p>
         <p><button type="button" id="B" class="btn btn-primary btn-lg">Wyświetl status &raquo</button></p>
@@ -103,7 +125,7 @@
     </p>
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4" id="oplaty">
             <h2>Opłaty</h2>
             <p>
                 Tutaj możesz sprawdzić archiwum opłat oraz wysokość czynszu w danym miesiącu.
@@ -113,7 +135,7 @@
                 <a class="btn btn-default" href="Opłaty.aspx">Przejdź &raquo;</a>
             </p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" id="media">
             <h2>Zużycie mediów</h2>
             <p>
                 Zestawienie wskazań poszczególnych liczników na dany miesiąc.
@@ -122,7 +144,7 @@
                 <a class="btn btn-default" href="Media.aspx">Przejdź &raquo;</a>
             </p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" id="face">
             
             <h2>Facebook</h2>
             <p>
