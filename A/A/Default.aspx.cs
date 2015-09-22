@@ -100,22 +100,22 @@ namespace A
             i++;
 
             pattern = "</TD></TR><TR id='2'";
-            newpattern = "</TD></TR>" + "<TR id='" + ids[i] + "' class='hide'><TD>" + childTable(names[i]) + "</TD></TR><TR id='2'";
+            newpattern = "</TD></TR>" + "<TR id='" + ids[i] + "' ><TD colspan='2'>" + childTable(names[i]) + "</TD></TR><TR id='2'";
             oldstring = oldstring.Replace(pattern, newpattern);
             i++;
 
             pattern = "</TD></TR><TR id='3'";
-            newpattern = "</TD></TR>" + "<TR id='" + ids[i] + "' class='hide'><TD>" + childTable(names[i]) + "</TD></TR><TR id='3'";
+            newpattern = "</TD></TR>" + "<TR id='" + ids[i] + "' ><TD colspan='2'>" + childTable(names[i]) + "</TD></TR><TR id='3'";
             oldstring = oldstring.Replace(pattern, newpattern);
             i++;
 
             pattern = "</TD></TR><TR id='4'";
-            newpattern = "</TD></TR>" + "<TR id='" + ids[i] + "' class='hide'><TD>" + childTable(names[i]) + "</TD></TR><TR id='4'";
+            newpattern = "</TD></TR>" + "<TR id='" + ids[i] + "' ><TD colspan='2'>" + childTable(names[i]) + "</TD></TR><TR id='4'";
             oldstring = oldstring.Replace(pattern, newpattern);
             i++;
 
             pattern = "</TD></TR></TABLE>";
-            newpattern = "</TD></TR>" + "<TR id='" + ids[i] + "' class='hide'><TD>" + childTable(names[i]) + "</TD></TR></TABLE>";
+            newpattern = "</TD></TR>" + "<TR id='" + ids[i] + "' ><TD colspan='2'>" + childTable(names[i]) + "</TD></TR></TABLE>";
             last = oldstring.Length - 18;
             oldstring = oldstring.Remove(last, 18);
             oldstring = oldstring + newpattern;
@@ -170,35 +170,35 @@ namespace A
                 {
                    //"<tr id="1" onclick="myFunction1()">"
                     string pattern = "<TR id='0' onclick='myFunction0()'><TD>Bartłomiej";
-                    string newpattern = "<TR id='0' onclick='myFunction0()' class='danger'><TD>Bartłomiej";//
+                    string newpattern = "<TR id='0' class='danger'><TD>Bartłomiej";//<TR id='0' onclick='myFunction0()' class='danger'>
                     oldstring = oldstring.Replace(pattern, newpattern);
                     
                 }
                 if (osoby[1].Bool)
                 {
                     string pattern = "<TR id='1' onclick='myFunction1()'><TD>Marta";
-                    string newpattern = "<TR id='1' onclick='myFunction1()' class='danger'><TD>Marta";
+                    string newpattern = "<TR id='1' class='danger'><TD>Marta";//<TR id='1' onclick='myFunction1()' class='danger'>
                     oldstring = oldstring.Replace(pattern, newpattern);
                     
                 }
                 if (osoby[2].Bool)
                 {
                     string pattern = "<TR id='2' onclick='myFunction2()'><TD>Marcin";
-                    string newpattern = "<TR id='2' onclick='myFunction2()' class='danger'><TD>Marcin";
+                    string newpattern = "<TR id='2' class='danger'><TD>Marcin";
                     oldstring = oldstring.Replace(pattern, newpattern);
                     
                 }
                 if (osoby[3].Bool)
                 {
                     string pattern = "<TR id='3' onclick='myFunction3()'><TD>Sylwester";
-                    string newpattern = "<TR id='3' onclick='myFunction3()' class='danger'><TD>Sylwester";
+                    string newpattern = "<TR id='3' class='danger'><TD>Sylwester";
                     oldstring = oldstring.Replace(pattern, newpattern);
                     
                 }
                 if (osoby[4].Bool)
                 {
                     string pattern = "<TR id='4' onclick='myFunction4()'><TD>Piotr";
-                    string newpattern = "<TR id='4' onclick='myFunction4()' class='danger'><TD>Piotr";
+                    string newpattern = "<TR id='4' class='danger'><TD>Piotr";
                     oldstring = oldstring.Replace(pattern, newpattern);
                     
                 }
@@ -231,7 +231,7 @@ namespace A
 
         static protected string childTable(string who)
         {
-            string table = @"<TABLE class='smallTable table table-hover';><TH class='info'>Czynsz</TH><TH class='info'>Internet</TH><TH class='info'>Składka</TH><TR>";
+            string table = @"<TABLE class='table table-hover';><TH class='info'>Czynsz</TH><TH class='info'>Internet</TH><TH class='info'>Składka</TH><TR>";
             MySqlConnection myConn = new MySqlConnection(WebConfigurationManager.ConnectionStrings["DBConnectionString"].ToString());
             MySqlCommand command = new MySqlCommand("SELECT Czynsz, Internet, Składka FROM " + who, myConn);
             myConn.Open();

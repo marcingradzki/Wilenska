@@ -7,22 +7,6 @@
     {
         background-color: #FF9175;
     }
-    .smallTable
-    {
-        width: 100%;
-        margin-left: auto; 
-        margin-right: auto;
-        display:table-row;
-        
-    }
-    .myTable
-    {
-        border-spacing: 0px;
-        border-collapse: collapse;
-        display:block;
-        width: 100%;
-        
-    }
     .hide
     {
         /*visibility: hidden;*/
@@ -37,7 +21,7 @@
     <script>
         //naglowek
         $(document).ready(function () {
-            $("#jumbo, #oplaty, #media, #face").css("display", "none");
+            $("#jumbo, #oplaty, #media, #face, #z0, #z1, #z2, #z3, #z4").css("display", "none");
         })
 
         $(document).ready(function () {
@@ -60,54 +44,72 @@
             });
         })
 
-        $(document).ready(function () {
-            $("#z0").css("display", "none");
-        })
-        //$(document).ready(function () {
-        //    $("#0").click(function () {
-        //        $("#bartek").fadeToggle();
-        //    });
-        //});
-
-
         //podtabelki
-        function changeClass(element) {
-            var currentClassValue = element.className;
-
-            if (currentClassValue == 'hide') {
-                element.className = 'show';
-                return;
-            }
-            else if (currentClassValue == 'show') {
-                element.className = 'hide';
-                return;
-            }
-        }
-
-
-
-        function myFunction0() {
-            //changeClass(z0);
-            $(document).ready(function () {
-                $("#z0").slideToggle(2000);
+        $(document).ready(function () {
+            $("#0").click(function () {
+                $("#z0").fadeToggle();
             });
-        }
+        });
+        $(document).ready(function () {
+            $("#1").click(function () {
+                $("#z1").fadeToggle();
+            });
+        });
+        $(document).ready(function () {
+            $("#2").click(function () {
+                $("#z2").fadeToggle();
+            });
+        });
+        $(document).ready(function () {
+            $("#3").click(function () {
+                $("#z3").fadeToggle();
+            });
+        });
+        $(document).ready(function () {
+            $("#4").click(function () {
+                $("#z4").fadeToggle();
+            });
+        });
+
+
+        ////podtabelki
+        //function changeClass(element) {
+        //    var currentClassValue = element.className;
+
+        //    if (currentClassValue == 'hide') {
+        //        element.className = 'show';
+        //        return;
+        //    }
+        //    else if (currentClassValue == 'show') {
+        //        element.className = 'hide';
+        //        return;
+        //    }
+        //}
+
+
+
+        //function myFunction0() {
+        //    //changeClass(z0);
+        //    //$(document).ready(function () {
+        //    //    $("#z0").fadeTo(500,1);
+        //    //});
+        //}
         
-        function myFunction1() {
-            changeClass(z1);
-        }
+        //function myFunction1() {
+           
+        //}
 
-        function myFunction2() {
-            changeClass(z2);
-        }
+        //function myFunction2() {
+        //    changeClass(z2);
+        //}
 
-        function myFunction3() {
-            changeClass(z3);
-        }
+        //function myFunction3() {
+        //    changeClass(z3);
+        //}
 
-        function myFunction4() {
-            changeClass(z4);
-        }
+        //function myFunction4() {
+        //    changeClass(z4);
+        //}
         
     </script>
 

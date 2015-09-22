@@ -3,21 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script> 
-
-
-            $(document).ready(function () {
-                $("#info").slideUp();
-                $("#info").slideDown("slow");
-            });
-
-                
-        
-        </script>
-
-
-    <style>
+    <style type="text/css">
         .alignleft {
 	    float: left;
         }
@@ -31,11 +17,31 @@
         }
         .center {
             text-align: center;
+
         }
         .hide{
             display: none;
+
         }
     </style>
+
+
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#info, #tabela").css("display","none");
+        })
+
+        $(document).ready(function () {
+            $("#tabela").fadeIn("slow");
+        });
+        $(document).ready(function () {
+            $("#info").slideDown("slow");
+        });
+
+    </script>
 
     <%--<button type="button" id="flip">G</button>--%>
     <div class="row">
@@ -45,7 +51,7 @@
         </div>
     </div >
         <br />
-    <div >    
+    <div id="info">    
         <div class="col-sm-4 alert alert-danger center" >
         <p class="fontsize"><strong>CZYNSZ I OPŁATY</strong></p>
         <p ><strong>Pieniądze należy wpłacać na konto: </strong></p>
@@ -70,7 +76,7 @@
         
         
 
-        <div class="col-sm-4 alert alert-danger center" >
+        <div class="col-sm-4 alert alert-danger center">
         <p class="fontsize"><strong>SKŁADKA</strong></p>
         <p ><strong>Pieniądze należy wpłacać na konto: </strong></p>
         <p >29 1240 3190 1111 0010 3419 9597</p>
@@ -80,7 +86,11 @@
         <p >Kutno</p>
         </div>
     </div>
+    <br/>
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
     
     
+    
+
+
 </asp:Content>

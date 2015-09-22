@@ -300,4 +300,5 @@ C:\Users\ivs002\Documents\GitHub\Wilenska - Kopia\A\A\obj\Debug\A.dll
 C:\Users\ivs002\Documents\GitHub\Wilenska - Kopia\A\A\obj\Debug\A.pdb
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\MySql.Fabric.Plugin.dll
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\MySql.Data.Entity.EF6.dll
+C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\bin\MySql.Data.dll
 C:\Users\ivs002\Documents\GitHub\Wilenska\A\A\obj\Debug\A.csprojResolveAssemblyReference.cache

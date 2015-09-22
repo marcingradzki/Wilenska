@@ -31,9 +31,12 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-            $("#info").css("display","none");
+            $("#info, #tabela").css("display","none");
         })
 
+        $(document).ready(function () {
+            $("#tabela").fadeIn("slow");
+        });
         $(document).ready(function () {
             $("#info").slideDown("slow");
         });

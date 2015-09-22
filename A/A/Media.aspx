@@ -21,16 +21,16 @@
             $("#info, #info1, #info2, #info3").css("display","none");
         })
 
-        $(document).ready(function () {
+        $(window).ready(function () {
             $("#info").fadeIn(1000);
         });
-        $(document).ready(function () {
+        $(window).ready(function () {
             $("#info2").fadeIn(1500);
         });
-        $(document).ready(function () {
+        $(window).ready(function () {
             $("#info1").fadeIn(2000);
         });
-        $(document).ready(function () {
+        $(window).ready(function () {
             $("#info3").fadeIn(2500);
         });
     </script>

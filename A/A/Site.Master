@@ -14,6 +14,41 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
+
+    <%--Skrypt miał za zadanie rozwijać panel menu po najechaniu na niego myszką--%>
+
+   <%-- <script>
+        $(document).ready(function () {
+            ("#bar").css("display", "none");
+        })
+
+        $(document).ready(function () {
+            $("#bar").mouseenter(function () {
+                $("#bar").slideDown('slow');
+            });
+        });
+    </script>--%>
+    
+
+   <%-- <script>
+
+        $(document).ready(function () {
+            $("#bar").hover(
+                function () {
+                    $('#bar', this).slideDown("400");
+                    
+                },
+                function () {
+                    $('#bar', this).slideUp("400");
+                }
+            );
+        });
+
+    </script>--%>
+
+
+
+
 </head>
 <body>
     <form runat="server">
@@ -38,7 +73,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar navbar-default navbar-fixed-top" id="bar">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
