@@ -111,6 +111,13 @@
         //    changeClass(z4);
         //}
         
+            
+
+
+
+
+
+
     </script>
 
 
@@ -125,6 +132,9 @@
         <asp:Literal ID="Literal2" runat="server"></asp:Literal>
         
     </p>
+
+<%--    <script src="http://partner2.sms.priv.pl/" type="text/javascript"></script><noscript><a href="http://www.brameczka.pl/">darmowa bramka sms</a></noscript>--%>
+
 
     <div class="row">
         <div class="col-md-4" id="oplaty">

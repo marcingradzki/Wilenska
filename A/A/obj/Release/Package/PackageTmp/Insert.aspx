@@ -323,25 +323,25 @@
         <asp:SqlDataSource ID="opłaty" runat="server" ConnectionString="<%$ ConnectionStrings:DBConnectionString %>" ProviderName="<%$ ConnectionStrings:DBConnectionString.ProviderName %>"
 
             SelectCommand="
-            UPDATE Opłaty, media
-                SET Opłaty.Woda = (12.34 + ((Media.Woda_zimna + Media.Woda_ciepła)*7.88) + (13.09 * Media.Woda_ciepła)) * Opłaty.Helper ,
-                Opłaty.Prąd = (Media.Prąd * 0.56 + 4.75) * Opłaty.Helper,
-                Opłaty.Gaz = (Media.Gaz * 2.2 + 9.2) * Opłaty.Helper
+            UPDATE Opłaty, media_zuzycie
+                SET Opłaty.Woda = (12.34 + ((media_zuzycie.Woda_zimna + media_zuzycie.Woda_ciepła)*7.88) + (13.09 * media_zuzycie.Woda_ciepła)) * Opłaty.Helper ,
+                Opłaty.Prąd = (media_zuzycie.Prąd * 0.56 + 4.75) * Opłaty.Helper,
+                Opłaty.Gaz = (media_zuzycie.Gaz * 2.2 + 9.2) * Opłaty.Helper
                
-                WHERE Opłaty.ID = media.ID;
-                UPDATE Opłaty, media
+                WHERE media_zuzycie.ID = Opłaty.ID - 1 ;
+                UPDATE Opłaty, media_zuzycie
                 SET Opłaty.Suma_kosztów = (Opłaty.Woda + Opłaty.Prąd + Opłaty.Gaz + opłaty.czynsz)
-                Where Opłaty.ID = Media.ID; SELECT * FROM Opłaty"
+                Where Opłaty.ID = media_zuzycie.ID; SELECT * FROM Opłaty"
             UpdateCommand=
-            "UPDATE Opłaty, media
-                SET Opłaty.Woda = (12.34 + ((Media.Woda_zimna + Media.Woda_ciepła)*7.88) + (13.09 * Media.Woda_ciepła)) * Opłaty.Helper ,
-                Opłaty.Prąd = (Media.Prąd * 0.56 + 4.75) * Opłaty.Helper,
-                Opłaty.Gaz = (Media.Gaz * 2.2 + 9.2) * Opłaty.Helper
+            "UPDATE Opłaty, media_zuzycie
+                SET Opłaty.Woda = (12.34 + ((media_zuzycie.Woda_zimna + media_zuzycie.Woda_ciepła)*7.88) + (13.09 * media_zuzycie.Woda_ciepła)) * Opłaty.Helper ,
+                Opłaty.Prąd = (media_zuzycie.Prąd * 0.56 + 4.75) * Opłaty.Helper,
+                Opłaty.Gaz = (media_zuzycie.Gaz * 2.2 + 9.2) * Opłaty.Helper
                 
-                WHERE Opłaty.ID = media.ID;
-                UPDATE Opłaty, media
+                WHERE media_zuzycie.ID = Opłaty.ID - 1;
+                UPDATE Opłaty, media_zuzycie
                 SET Opłaty.Suma_kosztów = (Opłaty.Woda + Opłaty.Prąd + Opłaty.Gaz + opłaty.czynsz)
-                Where Opłaty.ID = Media.ID;
+                Where Opłaty.ID = media_zuzycie.ID;
                 
                 UPDATE opłaty SET Helper = ?, Czynsz = ?, Internet = ?, Składka = ? WHERE ID = ?;
                 SELECT * FROM Opłaty" >

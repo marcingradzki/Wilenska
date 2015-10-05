@@ -5,6 +5,7 @@ using System.Web.UI.DataVisualization.Charting;
 using System.Web.Configuration;
 using MySql.Data.MySqlClient;
 using System.IO;
+using System.Drawing;
 
 namespace A
 {
@@ -32,19 +33,27 @@ namespace A
         {
             Chart1.ChartAreas[0].AxisX.Interval = 1;
             Chart1.ChartAreas[0].AxisX.Minimum = 0;
-            Chart1.Titles.Add("Woda zimna");
+            Chart1.ChartAreas[0].AxisY.Minimum = 0;
+            Title title1 = Chart1.Titles.Add("Woda zimna");
+            title1.Font = new Font("Arial", 16, FontStyle.Bold);
 
             Chart2.ChartAreas[0].AxisX.Interval = 1;
             Chart2.ChartAreas[0].AxisX.Minimum = 0;
-            Chart2.Titles.Add("Woda ciepła");
+            Chart2.ChartAreas[0].AxisY.Minimum = 0;
+            Title title2 = Chart2.Titles.Add("Woda ciepła");
+            title2.Font = new Font("Arial", 16, FontStyle.Bold);
 
             Chart3.ChartAreas[0].AxisX.Interval = 1;
             Chart3.ChartAreas[0].AxisX.Minimum = 0;
-            Chart3.Titles.Add("Prąd");
+            Chart3.ChartAreas[0].AxisY.Minimum = 0;
+            Title title3 = Chart3.Titles.Add("Prąd");
+            title3.Font = new Font("Arial", 16, FontStyle.Bold);
 
             Chart4.ChartAreas[0].AxisX.Interval = 1;
             Chart4.ChartAreas[0].AxisX.Minimum = 0;
-            Chart4.Titles.Add("Gaz");
+            Chart4.ChartAreas[0].AxisY.Minimum = 0;
+            Title title4 = Chart4.Titles.Add("Gaz");
+            title4.Font = new Font("Arial", 16, FontStyle.Bold);
 
             MySqlConnection myConnection = new MySqlConnection(myConnectionString);
             MySqlConnection myConnection1 = new MySqlConnection(myConnectionString);

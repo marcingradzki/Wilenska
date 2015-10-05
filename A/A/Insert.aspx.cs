@@ -50,7 +50,7 @@ namespace A
                     result = tab[i, j] - tab[i - 1, j];
                     update += "UPDATE media_zuzycie " +
                     "SET " + headers[j] + " = " + result.ToString() + " " +
-                    "WHERE ID = " + (i + 1).ToString()+ "; \n" ;
+                    "WHERE ID = " + (i).ToString()+ "; \n" ;
                 }
             }
             update = update.Replace(',', '.');
