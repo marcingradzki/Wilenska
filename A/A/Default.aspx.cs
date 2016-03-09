@@ -51,7 +51,7 @@ namespace A
                     try
                     {
                         string row = "";
-                        Literal1.Text = @"<TABLE class='table table-hover' id='Tabelka' style='display:none'>";
+                        Literal1.Text = @"<TABLE class='table table-hover' id='Tabelka' style='display:none'><h2 id='tableTitle' style='display:none'>Kliknij nazwisko aby rozwinąć </h2>";
                         Literal1.Text += "<TR>";
                         foreach (var i in l)
                         {

@@ -1,19 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="IIS Web Application Name" description="" value="wilenskirejon" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\ivs002\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp$" />
-    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\ivs002\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Marcin\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Marcin\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="A.Models.ApplicationDbContext-Web.config Connection String" description="" value="A.Models.ApplicationDbContext_ConnectionString" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Marcin\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='A.Models.ApplicationDbContext']/@connectionString" />
   </parameter>
   <parameter name="A.MySqlHistoryContext-Web.config Connection String" description="" value="A.MySqlHistoryContext_ConnectionString" tags="">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\ivs002\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='A.MySqlHistoryContext']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Marcin\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='A.MySqlHistoryContext']/@connectionString" />
   </parameter>
   <parameter name="DBConnectionString-Web.config Connection String" description="" value="Database=acsm_a0194eca4f70c60;Data Source=eu-cdbr-azure-west-c.cloudapp.net;User Id=baeb725b8c8ea0;Password=4535d1d5" tags="">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\ivs002\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DBConnectionString']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Marcin\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DBConnectionString']/@connectionString" />
   </parameter>
-  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." value="Server=sql2.freemysqlhosting.net ;Port=3306;Database=sql290973;Uid=sql290973;Pwd=nW8%eI2%;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\ivs002\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Server=sql2.freemysqlhosting.net ;Port=3306;Database=sql290973;Uid=sql290973;Pwd=nW8%eI2%;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Marcin\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
   </parameter>
-  <parameter name="LocalMySqlServer-Web.config Connection String" description="LocalMySqlServer Connection String used in web.config by the application to access the database." value="Database=acsm_a0194eca4f70c60;Data Source=eu-cdbr-azure-west-c.cloudapp.net;User Id=baeb725b8c8ea0;Password=4535d1d5" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\ivs002\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='LocalMySqlServer']/@connectionString" />
+  <parameter name="LocalMySqlServer-Web.config Connection String" description="" value="Database=acsm_a0194eca4f70c60;Data Source=eu-cdbr-azure-west-c.cloudapp.net;User Id=baeb725b8c8ea0;Password=4535d1d5" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Marcin\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='LocalMySqlServer']/@connectionString" />
   </parameter>
 </parameters>

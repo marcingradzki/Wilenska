@@ -1,15 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Server=sql2.freemysqlhosting.net ;Port=3306;Database=sql290973;Uid=sql290973;Pwd=nW8%eI2%;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\ivs002\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Parametry połączenia używane w pliku web.config przez aplikację w celu uzyskiwania dostępu do bazy danych." defaultValue="Server=sql2.freemysqlhosting.net ;Port=3306;Database=sql290973;Uid=sql290973;Pwd=nW8%eI2%;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Marcin\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
   </parameter>
-  <parameter name="DBConnectionString-Web.config Connection String" description="DBConnectionString Connection String used in web.config by the application to access the database." defaultValue="Database=acsm_a0194eca4f70c60;Data Source=eu-cdbr-azure-west-c.cloudapp.net;User Id=baeb725b8c8ea0;Password=4535d1d5" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\ivs002\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DBConnectionString']/@connectionString" />
+  <parameter name="DBConnectionString-Web.config Connection String" description="DBConnectionString Parametry połączenia używane w pliku web.config przez aplikację w celu uzyskiwania dostępu do bazy danych." defaultValue="Database=acsm_a0194eca4f70c60;Data Source=eu-cdbr-azure-west-c.cloudapp.net;User Id=baeb725b8c8ea0;Password=4535d1d5" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Marcin\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DBConnectionString']/@connectionString" />
   </parameter>
-  <parameter name="LocalMySqlServer-Web.config Connection String" description="LocalMySqlServer Connection String used in web.config by the application to access the database." defaultValue="Database=acsm_a0194eca4f70c60;Data Source=eu-cdbr-azure-west-c.cloudapp.net;User Id=baeb725b8c8ea0;Password=4535d1d5" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\ivs002\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='LocalMySqlServer']/@connectionString" />
+  <parameter name="LocalMySqlServer-Web.config Connection String" description="LocalMySqlServer Parametry połączenia używane w pliku web.config przez aplikację w celu uzyskiwania dostępu do bazy danych." defaultValue="Database=acsm_a0194eca4f70c60;Data Source=eu-cdbr-azure-west-c.cloudapp.net;User Id=baeb725b8c8ea0;Password=4535d1d5" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Marcin\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='LocalMySqlServer']/@connectionString" />
   </parameter>
-  <parameter name="A.MySqlHistoryContext-Web.config Connection String" description="A.MySqlHistoryContext Connection String used in web.config by the application to access the database." defaultValue="A.MySqlHistoryContext_ConnectionString" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\ivs002\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='A.MySqlHistoryContext']/@connectionString" />
+  <parameter name="A.Models.ApplicationDbContext-Web.config Connection String" description="A.Models.ApplicationDbContext Parametry połączenia używane w pliku web.config przez aplikację w celu uzyskiwania dostępu do bazy danych." defaultValue="A.Models.ApplicationDbContext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Marcin\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='A.Models.ApplicationDbContext']/@connectionString" />
+  </parameter>
+  <parameter name="A.MySqlHistoryContext-Web.config Connection String" description="A.MySqlHistoryContext Parametry połączenia używane w pliku web.config przez aplikację w celu uzyskiwania dostępu do bazy danych." defaultValue="A.MySqlHistoryContext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Marcin\\Documents\\GitHub\\Wilenska\\A\\A\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='A.MySqlHistoryContext']/@connectionString" />
   </parameter>
 </parameters>

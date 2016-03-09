@@ -41,6 +41,7 @@
             
             $("#B").click(function () {
                 $("#Tabelka").fadeToggle();
+                $("#tableTitle").fadeToggle();
             });
         })
 

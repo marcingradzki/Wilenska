@@ -25,7 +25,7 @@
         <h2 >Wczytaj dane do tabeli</h2>
 
     <br />
-    <asp:Button ID="Button1" runat="server" Text="Odśwież i zapisz zmiany" OnClick="Button1_Click" class="btn btn-success btn-lg"/>
+    <asp:Button ID="Button1" runat="server" Text="Odśwież i zapisz wprowadzone zmiany" OnClick="Button1_Click" class="btn btn-success btn-lg"/>
     <br />
     <asp:Literal ID="literal11" runat="server"></asp:Literal>
     <div class="row">
@@ -324,7 +324,7 @@
 
             SelectCommand="
             UPDATE Opłaty, media_zuzycie
-                SET Opłaty.Woda = (12.34 + ((media_zuzycie.Woda_zimna + media_zuzycie.Woda_ciepła)*7.88) + (13.09 * media_zuzycie.Woda_ciepła)) * Opłaty.Helper ,
+                SET Opłaty.Woda = (12.34 + ((media_zuzycie.Woda_zimna + media_zuzycie.Woda_ciepła)*8.55) + (13.09 * media_zuzycie.Woda_ciepła)) * Opłaty.Helper ,
                 Opłaty.Prąd = (media_zuzycie.Prąd * 0.56 + 4.75) * Opłaty.Helper,
                 Opłaty.Gaz = (media_zuzycie.Gaz * 2.2 + 9.2) * Opłaty.Helper
                
@@ -334,7 +334,7 @@
                 Where Opłaty.ID = media_zuzycie.ID; SELECT * FROM Opłaty"
             UpdateCommand=
             "UPDATE Opłaty, media_zuzycie
-                SET Opłaty.Woda = (12.34 + ((media_zuzycie.Woda_zimna + media_zuzycie.Woda_ciepła)*7.88) + (13.09 * media_zuzycie.Woda_ciepła)) * Opłaty.Helper ,
+                SET Opłaty.Woda = (12.34 + ((media_zuzycie.Woda_zimna + media_zuzycie.Woda_ciepła)*8.55) + (13.09 * media_zuzycie.Woda_ciepła)) * Opłaty.Helper ,
                 Opłaty.Prąd = (media_zuzycie.Prąd * 0.56 + 4.75) * Opłaty.Helper,
                 Opłaty.Gaz = (media_zuzycie.Gaz * 2.2 + 9.2) * Opłaty.Helper
                 
